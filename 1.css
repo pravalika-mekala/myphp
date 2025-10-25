@@ -1,0 +1,126 @@
+/* 🌈 Body Background */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f9d423, #ff4e50, #7b2ff7, #00c6ff);
+  background-size: 400% 400%;
+  animation: bgAnimation 12s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* ✨ Smooth animated gradient */
+@keyframes bgAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 💎 Form Container */
+form {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 35px 45px;
+  width: 380px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* 🩵 Title */
+h2 {
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+/* 🧾 Labels */
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 15px;
+  color: #fff;
+}
+
+/* 🧠 Input Fields */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  font-weight: 500;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+  box-shadow: 0 0 8px #fff;
+  transform: scale(1.02);
+  outline: none;
+}
+
+/* 🚻 Gender Section */
+.gender-options {
+  margin-top: 8px;
+}
+
+.gender-options label {
+  font-weight: normal;
+  margin-right: 20px;
+  color: #fff;
+}
+
+.gender-options input {
+  margin-right: 6px;
+}
+
+/* 🚀 Submit Button */
+input[type="submit"] {
+  width: 100%;
+  margin-top: 25px;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(135deg, #7b2ff7, #00c6ff);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+}
+
+/* 💬 Message */
+.message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+}

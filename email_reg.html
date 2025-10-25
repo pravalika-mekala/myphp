@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Registration Form</title>
+ <link rel="stylesheet" href="1.css"> 
+
+  
+  <!--<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    h2 { text-align: center; margin-bottom: 20px; color: #333; }
+    label { font-weight: bold; display: block; margin-top: 10px; color: #555; }
+    input[type="text"], input[type="number"], input[type="email"], input[type="tel"] {
+      width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px;
+    }
+    .gender-options { margin-top: 5px; }
+    .gender-options label { font-weight: normal; margin-right: 15px; }
+    input[type="submit"] {
+      width: 100%; margin-top: 15px; background-color: #007bff; color: white;
+      border: none; padding: 10px; font-size: 16px; border-radius: 5px; cursor: pointer;
+    }
+    input[type="submit"]:hover { background-color: #0056b3; }
+    .message { text-align: center; margin-top: 10px; font-weight: bold; }
+  </style> -->
+</head>
+<body>
+  <form id="registrationForm" action="email_reg.php" method="POST">
+    <h2>Email Registration</h2>
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="address">Address:</label>
+    <input type="text" name="address" id="address" required>
+
+    <label>Gender:</label>
+    <div class="gender-options">
+      <label><input type="radio" name="gender" value="Male" required> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label>
+      <label><input type="radio" name="gender" value="Other"> Other</label>
+    </div>
+
+    <label for="age">Age:</label>
+    <input type="number" name="age" id="age" required min="1">
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="contact">Contact:</label>
+    <input type="tel" name="contact" id="contact" required pattern="[0-9]{10}" title="Enter 10-digit number">
+
+    <input type="submit" value="Submit">
+    <div class="message" id="msg"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById("registrationForm");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("email_reg.php", { method: "POST", body: formData });
+        const result = await response.json();
+
+        msg.textContent = result.message;
+        msg.style.color = result.status === "success" ? "green" : "red";
+
+        if (result.status === "success") form.reset();
+      } catch (error) {
+        console.error(error);
+        msg.textContent = "Error submitting form.";
+        msg.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
